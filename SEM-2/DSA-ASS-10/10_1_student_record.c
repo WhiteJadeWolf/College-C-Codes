@@ -71,6 +71,7 @@ void binarysearch(char *x){
         if(cmp == 0){
             printf("%s  %d  %s\n", students[m].name, students[m].roll, students[m].dept);
             flag = 1;
+            break;
         }
         else if(cmp < 0){
             l = m + 1;
@@ -92,7 +93,7 @@ int main(){
     }
     while(1){
         int ch;
-        printf("Enter your choice :--\n1 - Bubble-Sort the records based on Name\n2 - Search for students based on Name\n3 - Exit\nChoice : ");
+        printf("\nEnter your choice :--\n1 - Bubble-Sort the records based on Name\n2 - Search for students based on Name\n3 - Exit\nChoice : ");
         scanf("%d",&ch);
         switch(ch){
             case 1: bubblesortname();

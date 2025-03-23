@@ -1,3 +1,9 @@
+/* Let A[n] be an array of n distinct integers.
+If i < j and A[i] > A[j], then the pair (i, j) Is called an inversion of A.
+Write a C/C++ program that determines the number of Inversions in any permutation on n elements in O(n lg n) worst-case time.
+(Hint: Modify merge sort)
+Example: A = {4, 1, 3, 2} output is 4 */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -27,7 +33,7 @@ void inversionupdate(int *A, int l, int m, int r)
     {
         B[k++] = A[j++];
     }
-    for (int _ = 0; _ < k; _++) 
+    for (int _ = 0; _ < k; _++)
     {
         A[l + _] = B[_];
     }
@@ -72,7 +78,7 @@ int main()
                 printf("%d ", A[i]);
             }
             printf("\n");
-            c = 0; 
+            c = 0;
             break;
         }
         case 2:
