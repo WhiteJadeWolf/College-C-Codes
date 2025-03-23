@@ -47,7 +47,7 @@ void mergesort(int *X, int l, int r)
 {
     if (l < r)
     {
-        int m = l + (r - l) / 2;
+        int m = (r + l) / 2;
         mergesort(X, l, m);
         mergesort(X, m + 1, r);
         merge(X, l, m, r);
