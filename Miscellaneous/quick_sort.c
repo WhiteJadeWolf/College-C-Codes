@@ -1,13 +1,25 @@
-/* Find the kth smallest element in an array using quicksortksmall. */
+/* Sort an array using quicksort. */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MAX 100
 
+void display(int *arr, int n)
+{
+    for (int _ = 0; _ < n; _++)
+    {
+        printf("%d ", arr[_]);
+    }
+    printf("\n");
+}
+
 int partition(int *arr, int low, int high)
 {
-    int pivot = arr[low], i = low + 1, j = high, temp;
+    int pivot = arr[low];
+    int i = low + 1;
+    int j = high;
+    int temp;
     do
     {
         while (arr[i] <= pivot)
@@ -31,24 +43,14 @@ int partition(int *arr, int low, int high)
     return j;
 }
 
-int quicksortksmall(int *arr, int low, int high, int k)
+void quicksort(int *arr, int low, int high)
 {
     int indexpos;
     if (low < high)
     {
         indexpos = partition(arr, low, high);
-        if (k - 1 == indexpos)
-        {
-            return arr[k];
-        }
-        else if (k - 1 < indexpos)
-        {
-            quicksortksmall(arr, low, indexpos - 1, k);
-        }
-        else
-        {
-            quicksortksmall(arr, indexpos + 1, high, k);
-        }
+        quicksort(arr, low, indexpos - 1);
+        quicksort(arr, indexpos + 1, high);
     }
 }
 
@@ -57,13 +59,13 @@ int main()
     int ch;
     while (1)
     {
-        printf("\nEnter your choice :--\n1 - Find kth smallest element using quick sort\n2 - Exit\nChoice : ");
+        printf("\nEnter your choice :--\n1 - Quick sort given array\n2 - Exit\nChoice : ");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
         {
-            int n, k;
+            int n;
             printf("\nEnter size of array : ");
             scanf("%d", &n);
             int arr[n];
@@ -72,9 +74,9 @@ int main()
             {
                 scanf("%d", &arr[_]);
             }
-            printf("Enter k : ");
-            scanf("%d", &k);
-            printf("%d th smallest element : %d", k, quicksortksmall(arr, 0, n - 1, k));
+            quicksort(arr, 0, n - 1);
+            printf("Sorted Array : ");
+            display(arr, n);
             break;
         }
         case 2:
