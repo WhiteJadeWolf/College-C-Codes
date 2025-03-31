@@ -74,7 +74,7 @@ int main()
             }
             printf("Enter k : ");
             scanf("%d", &k);
-            printf("%d th smallest element : %d", k, quicksortksmall(arr, 0, n - 1, k));
+            printf("%d th smallest element : %d\n", k, quicksortksmall(arr, 0, n - 1, k));
             break;
         }
         case 2:
