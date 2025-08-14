@@ -1,1 +1,1 @@
-# Artificial Intelligence (IPG) -- DIV-H -- I24AI014
+# Artificial Intelligence (IPG) -- DIV-A -- I24AI014
